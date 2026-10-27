@@ -1,5 +1,5 @@
 
-# Ex.No:6 Design an android application Send SMS using Intent.
+# Ex.No:3 Design an android application Send SMS using Intent.
 
 
 ## AIM:
@@ -120,6 +120,14 @@ public class MainActivity extends AppCompatActivity {
 ```
 
 ## OUTPUT
+
+<img width="1092" height="843" alt="image" src="https://github.com/user-attachments/assets/61405034-e359-42dc-8599-b1748fdff45b" />
+<img width="1380" height="952" alt="image" src="https://github.com/user-attachments/assets/f5af51fc-765d-460e-be16-b203f8e2f6ca" />
+
+
+<img width="180" height="417" alt="image" src="https://github.com/user-attachments/assets/24112d00-3475-41ef-8479-cbb54c794e7d" />
+<img width="183" height="415" alt="image" src="https://github.com/user-attachments/assets/70b1f2ea-e38a-4f59-bf81-85a65b474054" />
+<img width="187" height="413" alt="image" src="https://github.com/user-attachments/assets/3c5bf587-279e-4a76-a9e1-66b994c1912b" />
 
 
 
