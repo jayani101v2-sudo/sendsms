@@ -37,12 +37,84 @@ Registeration Number : 212224100025
 
 ## activity_main.xml
 
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp">
 
+    <EditText
+        android:id="@+id/phoneNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter phone number"
+        android:inputType="phone" />
+
+    <EditText
+        android:id="@+id/message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter message"
+        android:inputType="textMultiLine"
+        android:minLines="3"
+        android:gravity="top" />
+
+    <Button
+        android:id="@+id/sendButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Send SMS" />
+
+</LinearLayout>
 
 
 ## MainActivity.java
 
+package com.example.smsintent;
 
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity {
+
+    EditText phoneNumber, message;
+    Button sendButton;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        phoneNumber = findViewById(R.id.phoneNumber);
+        message = findViewById(R.id.message);
+        sendButton = findViewById(R.id.sendButton);
+
+        sendButton.setOnClickListener(v -> {
+
+            String phone = phoneNumber.getText().toString().trim();
+            String text = message.getText().toString();
+
+            if (phone.isEmpty() || text.trim().isEmpty()) {
+                Toast.makeText(this,
+                        "Enter phone number and message",
+                        Toast.LENGTH_SHORT).show();
+            } else {
+                Intent intent = new Intent(Intent.ACTION_SENDTO);
+                intent.setData(Uri.parse("smsto:" + Uri.encode(phone)));
+                intent.putExtra("sms_body", text);
+
+                startActivity(intent);
+            }
+        });
+    }
+}
 
 
 ```
